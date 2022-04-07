@@ -6,7 +6,7 @@ service_choices = (
     ('Emergency', 'EMERGENCY'),
     ('Maintenance', 'MAINTENANCE'),
     ('Wiring', 'WIRING'),
-    ('Installation', 'INSTALLATION')
+    ('Installation', 'INSTALLATION'),
     ('Inspection', 'INSPECTION'),
     ('Quote', 'QUOTE')
     )

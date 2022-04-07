@@ -5,10 +5,10 @@ from services.models import Service
 
 # Create your models here.
 
-class Appointment(models.model):
+class Appointment(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    appointment_date_time = models.CharField()
+    appointment_date_time = models.DateTimeField
     appointment_status = models.ForeignKey(AppointmentStatus, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     description = models.CharField(max_length=3000)
