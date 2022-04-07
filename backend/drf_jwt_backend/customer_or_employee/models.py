@@ -8,9 +8,9 @@ user_choices = (
     ('Customer', 'CUSTOMER'),
     )
 
-class Service(models.Model):
+class UserType(models.Model):
 
-    service_type = models.CharField(max_length=20, choices=user_choices, default='Quote')
+    user_type = models.CharField(max_length=20, choices=user_choices, default='Quote')
 
     def __str__(self):
         return self.service_type
