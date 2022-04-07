@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from .serializers import StatusSerializer
-from .models import Status
+from .models import AppointmentStatus
 
 # Create your views here.
 
@@ -12,8 +12,8 @@ def status_type_list(request):
 
     if request.method == 'GET':
 
-        status_type = Status.objects
-        serializer = Status(status_type, many=True)
+        status_type = AppointmentStatus.objects
+        serializer = AppointmentStatus(status_type, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
@@ -25,7 +25,7 @@ def status_type_list(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def status_type_list_detail(request, pk):
 
-    status_type = get_object_or_404(Status, pk=pk)
+    status_type = get_object_or_404(AppointmentStatus, pk=pk)
 
     if request.method == 'GET':
 

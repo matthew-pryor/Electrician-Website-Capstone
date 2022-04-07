@@ -9,7 +9,7 @@ status_choices = (
     ('Cancelled', 'CANCELLED')
     )
 
-class Status(models.Model):
+class AppointmentStatus(models.Model):
 
     status_type = models.CharField(max_length=20, choices=status_choices, default='Processing')
 
