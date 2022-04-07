@@ -10,7 +10,7 @@ user_choices = (
 
 class UserType(models.Model):
 
-    user_type = models.CharField(max_length=20, choices=user_choices, default='Quote')
+    user_type = models.CharField(max_length=20, choices=user_choices, default='Customer')
 
     def __str__(self):
-        return self.service_type
+        return self.user_type
