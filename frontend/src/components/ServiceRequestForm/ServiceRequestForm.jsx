@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import useAuth from "../../hooks/useAuth";
 
 const ServiceRequestForm = (props) => {
@@ -70,6 +70,7 @@ const ServiceRequestForm = (props) => {
             <input type='text' placeholder="YYYY-MM-DD" value={appointment_date_time} onChange={(event) => setAppointmentDateTime(event.target.value)}/>
             <label>Description</label>
             <input type='text' placeholder="Please provide as many details about the service you are requesting as possible" value={description} onChange={(event) => setDescription(event.target.value)}/>
+            <button type="text" class="submit">Add Song</button>
         </form>
      );
 }
