@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import DemoApp from "../../components/Calendar/Calendar";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -34,6 +35,7 @@ const HomePage = () => {
             {car.year} {car.model} {car.make}
           </p>
         ))}
+        <DemoApp/>
     </div>
   );
 };
