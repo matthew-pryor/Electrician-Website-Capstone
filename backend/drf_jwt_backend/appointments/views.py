@@ -26,7 +26,7 @@ def user_appointments_by_electrician_id(request):
     appointments = Appointment.objects.all()
 
     if appointments_param:
-        appointments = appointments.filter(video_id=appointments_param)
+        appointments = appointments.filter(electrician_id=appointments_param)
 
     if sort_param:
         appointments = appointments.order_by(sort_param)

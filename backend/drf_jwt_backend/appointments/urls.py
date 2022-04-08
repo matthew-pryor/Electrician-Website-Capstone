@@ -5,7 +5,7 @@ from appointments import views
 
 urlpatterns = [
     path('', views.user_appointments),
-    path('video_id', views.user_appointments_by_electrician_id),
+    path('electrician_id', views.user_appointments_by_electrician_id),
     path('<int:pk>/', views.user_specific_appointments),
     path('all/', views.get_all_appointments),
 ]
