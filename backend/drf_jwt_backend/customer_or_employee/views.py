@@ -19,10 +19,8 @@ def get_all_electricians(request):
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def set_user_electrician_status(request, pk):
+def set_user_electrician_status(request):
 
-    electrician_id = pk
-    request.data['electrician_id'] = electrician_id
 
     if request.method == 'POST':
 
