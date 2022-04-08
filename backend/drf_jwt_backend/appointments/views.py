@@ -20,7 +20,7 @@ def get_all_appointments(request):
 @permission_classes([IsAuthenticated])
 def user_appointments_by_electrician_id(request):
 
-    appointments_param = request.query_params.get('electrician')
+    appointments_param = request.query_params.get('electrician_id')
     sort_param = request.query_params.get('sort')
 
     appointments = Appointment.objects.all()
