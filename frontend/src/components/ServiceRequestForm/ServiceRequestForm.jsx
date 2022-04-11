@@ -13,7 +13,7 @@ const ServiceRequestForm = (props) => {
     const [zip_code, setZipCode] = useState('');
     const [phone_number, setPhoneNumber] = useState('');
     const [email_address, setEmailAddress] = useState('');
-    const [appointment_date_time, setAppointmentDateTime] = useState('');
+    const [appointment_date, setAppointmentDate] = useState('');
     const [description, setDescription] = useState('');
 
     async function handleSubmitForm(event) {
@@ -29,7 +29,8 @@ const ServiceRequestForm = (props) => {
             phone_number: phone_number,
             email_address: email_address,
             electrician_id: 1,
-            appointment_date_time: appointment_date_time,
+            appointment_start_date: appointment_date,
+            appointment_end_date: appointment_date,
             appointment_status_id: 5,
             service_id: 1,
             description: description
@@ -91,7 +92,7 @@ const ServiceRequestForm = (props) => {
 
             <div>
             <label>Date/Time</label>
-            <input type='text' placeholder="YYYY-MM-DD" value={appointment_date_time} onChange={(event) => setAppointmentDateTime(event.target.value)}/> 
+            <input type='text' placeholder="YYYY-MM-DD" value={appointment_date} onChange={(event) => setAppointmentDate(event.target.value)}/> 
             </div>
 
             <div>

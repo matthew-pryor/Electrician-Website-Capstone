@@ -1,28 +1,50 @@
 import React from 'react'
-import FullCalendar from '@fullcalendar/react' // must go before plugins
+import FullCalendar, {formatDate} from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid' // a plugin!
+import { useEffect, useState } from 'react/cjs/react.production.min'
+import axios from 'axios'
 
-export default class DemoApp extends React.Component {
-  render() {
-    return (
-      <FullCalendar
-        plugins={[ dayGridPlugin ]}
-        eventContent={renderEventContent}
-        weekends={false}
-        events={[
-            { title: 'event 1', date: '2022-04-08' },
-            { title: 'event 2', date: '2022-04-12' }
-        ]}
-      />
-    )
-  }
-}
+const Calendar = () => {
 
-function renderEventContent(eventInfo) {
-  return (
-    <>
-      <b>{eventInfo.timeText}</b>
-      <i>{eventInfo.event.title}</i>
-    </>
-  )
+  const [events, setEvents] = useState([])
+
+  useEffect(()=>{
+    const fetchAppointments = async () => {
+      try{
+        let response = await axios.get("http://127.0.0.1:8000/api/appointments/electrician_id?electrician_id=1")
+        let formatData = events.map((e)=>{
+          return {id:e.id.toString(), service: e.service, start: e.appointment_date_start}
+        })
+        console.log(formatData)
+        setEvents(formatData)
+      } catch (error){
+        console.log(error.message);
+      }
+    };
+    fetchAppointments();
+    console.log("Event Data: ", events)
+  }, []);
+
+  return ( 
+    <div>
+      <div>
+        <FullCalendar
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        headerToolbar={{
+          left: 'prev, next, today',
+          center: 'title',
+          right: 'dayGridMonth, timeGridWeek, timeGridDay'
+        }}
+        initialView='dayGridMonth'
+        editable={true}
+        selectable={true}
+        selectMirror={true}
+        events={events}
+        />
+      </div>
+    </div>
+   );
 }
+ 
+export default Calendar;
