@@ -25,6 +25,12 @@ class Appointment(models.Model):
     description = models.CharField(max_length=3000)
     electrician_id = models.IntegerField()
 
+class Event(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    start = models.DateField()
+    end = models.DateField()
+
     # "2022-04-27"
 
 

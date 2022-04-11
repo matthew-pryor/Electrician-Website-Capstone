@@ -1,5 +1,6 @@
+
 from rest_framework import serializers
-from .models import Appointment
+from .models import Appointment, Event
 
 class AppointmentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,3 +10,8 @@ class AppointmentSerializer(serializers.ModelSerializer):
 
     appointment_status_id = serializers.IntegerField(write_only=True)
     service_id = serializers.IntegerField(write_only=True)
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = ['id', 'title', 'start', 'end']
