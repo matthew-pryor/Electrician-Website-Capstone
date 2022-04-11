@@ -1,5 +1,5 @@
 import React from 'react'
-import FullCalendar, {formatDate} from '@fullcalendar/react' // must go before plugins
+import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
@@ -14,7 +14,7 @@ const Calendar = () => {
     
     const fetchAppointments = async () => {
       try{
-        let response = await axios.get("http://127.0.0.1:8000/api/appointments/all/")
+        let response = await axios.get("http://127.0.0.1:8000/api/appointments/events/")
         setEvents(response.data)
       } catch (error){
         console.log(error.message);

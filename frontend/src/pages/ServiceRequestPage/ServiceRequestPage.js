@@ -12,7 +12,6 @@ const ServiceRequestPage = () => {
     <div className="container">
       <h1>Request Services Page</h1>
         <ServiceRequestForm/>
-        <Calendar/>
     </div>
   );
 };
