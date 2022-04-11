@@ -11,14 +11,11 @@ const Calendar = () => {
   const [events, setEvents] = useState([])
 
   useEffect(()=>{
+    
     const fetchAppointments = async () => {
       try{
         let response = await axios.get("http://127.0.0.1:8000/api/appointments/all/")
-        let formatData = events.map((e)=>{
-          return {id:e.id.toString(), start: e.appointment_date_start}
-        })
-        console.log(formatData)
-        setEvents(formatData)
+        setEvents(response.data)
       } catch (error){
         console.log(error.message);
       }
