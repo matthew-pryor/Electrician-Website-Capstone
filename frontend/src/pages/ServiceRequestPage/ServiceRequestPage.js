@@ -1,6 +1,7 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
 import ServiceRequestForm from "../../components/ServiceRequestForm/ServiceRequestForm";
+import Calendar from "../../components/Calendar/Calendar";
 
 const ServiceRequestPage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)

@@ -91,7 +91,7 @@ const ServiceRequestForm = (props) => {
             </div>
 
             <div>
-            <label>Date/Time</label>
+            <label>Date</label>
             <input type='text' placeholder="YYYY-MM-DD" value={appointment_date} onChange={(event) => setAppointmentDate(event.target.value)}/> 
             </div>
 
