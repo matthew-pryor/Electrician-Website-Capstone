@@ -1,21 +1,56 @@
-import React from 'react'
-import FullCalendar from '@fullcalendar/react' // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import React, { useState, useEffect } from 'react'
+import FullCalendar, { formatDate } from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import timeGridPlugin from '@fullcalendar/timegrid'
+import interactionPlugin from '@fullcalendar/interaction'
+import axios from 'axios'
 
-export default class DemoApp extends React.Component {
+import { Link } from "react-router-dom";
 
-  state = {
-    weekendsVisible: true,
-    currentEvents: []
-  }
+const Calendar = () => {
 
+ const [events, setEvents] = useState([]);
 
-  render() {
-    return (
-      <FullCalendar
-        plugins={[ dayGridPlugin ]}
-        initialView="dayGridMonth"
-      />
-    )
-  }
+    useEffect(() => {
+        
+      const fetchEvents = async () => {
+          try {
+              let response = await axios.get("http://127.0.0.1:8000/api/appointments/events/"); //Data from Database unprotected
+              setEvents(response.data);
+            } catch (error) {
+              console.log(error.message);
+            }
+          };
+        fetchEvents();
+        console.log("EVENT DATA:", events)
+      }, []);
+      
+      
+      
+      return ( 
+        <div className="calendar">
+            <div className='calendar-main'>
+              <div className='back-home'>
+                <Link to="/"><button>Back to Home</button></Link>
+              </div>
+                <FullCalendar
+                plugins={[dayGridPlugin,timeGridPlugin,interactionPlugin]}
+                headerToolbar={{
+                  left: 'prev,next today',
+                  center: 'title',
+                  right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                }}
+                initialView='dayGridMonth'
+                editable={true}
+                selectable={true}
+                selectMirror={true}
+                events={events}/>
+               
+
+            </div>
+        </div>
+
+);
 }
+
+export default Calendar;
