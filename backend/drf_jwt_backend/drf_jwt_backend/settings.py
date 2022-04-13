@@ -115,6 +115,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+DATE_INPUT_FORMATS = ['%Y-%m-%dT%H:%M:%S']
+
 STATIC_URL = '/static/'
 
 # Default primary key field type

@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from appointment_status.models import AppointmentStatus
 from services.models import Service
+from drf_jwt_backend.settings import DATE_INPUT_FORMATS
+from datetime import datetime
 
 # Create your models here.
 
@@ -18,8 +20,8 @@ class Appointment(models.Model):
     phone_number = models.CharField(max_length=255)
     email_address = models.CharField(max_length=255)
     title = models.CharField(max_length=20)
-    start = models.DateField()
-    end = models.DateField()
+    start = models.DateTimeField()
+    end = models.DateTimeField()
     appointment_status = models.ForeignKey(AppointmentStatus, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     description = models.CharField(max_length=3000)
@@ -28,8 +30,8 @@ class Appointment(models.Model):
 class Event(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    start = models.DateField()
-    end = models.DateField()
+    start = models.DateTimeField()
+    end = models.DateTimeField()
 
     # "2022-04-27"
 
