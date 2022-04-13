@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, {useState} from "react";
 import useAuth from "../../hooks/useAuth";
+import DatePicker from "react-datepicker";
 
 const ServiceRequestForm = (props) => {
 
@@ -13,8 +14,8 @@ const ServiceRequestForm = (props) => {
     const [zip_code, setZipCode] = useState('');
     const [phone_number, setPhoneNumber] = useState('');
     const [email_address, setEmailAddress] = useState('');
-    const [start, setStart] = useState('');
-    const [end, setEnd] = useState('');
+    const [start, setStart] = useState(new Date());
+    const [end, setEnd] = useState(new Date());
     const [description, setDescription] = useState('');
 
     async function handleSubmitForm(event) {
@@ -93,12 +94,12 @@ const ServiceRequestForm = (props) => {
 
             <div>
             <label>Start</label>
-            <input type='text' placeholder="YYYY-MM-DD" value={start} onChange={(event) => setStart(event.target.value)}/> 
+            <DatePicker selected={start} onChange={(date) => setStart(date)} showTimeSelect/> 
             </div>
 
             <div>
             <label>End</label>
-            <input type='text' placeholder="YYYY-MM-DD" value={end} onChange={(event) => setEnd(event.target.value)}/> 
+            <DatePicker selected={end}  onChange={(date) => setEnd(date)} showTimeSelect/> 
             </div>
 
 
