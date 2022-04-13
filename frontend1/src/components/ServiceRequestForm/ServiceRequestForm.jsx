@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useState} from "react";
 import useAuth from "../../hooks/useAuth";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const ServiceRequestForm = (props) => {
 
@@ -14,8 +15,9 @@ const ServiceRequestForm = (props) => {
     const [zip_code, setZipCode] = useState('');
     const [phone_number, setPhoneNumber] = useState('');
     const [email_address, setEmailAddress] = useState('');
-    const [start, setStart] = useState(new Date());
-    const [end, setEnd] = useState(new Date());
+    const [title, setTitle] = useState('');
+    const [start, setStart] = useState('');
+    const [end, setEnd] = useState('');
     const [description, setDescription] = useState('');
 
     async function handleSubmitForm(event) {
@@ -31,9 +33,10 @@ const ServiceRequestForm = (props) => {
             phone_number: phone_number,
             email_address: email_address,
             electrician_id: 1,
+            title: title,
             start: start,
             end: end,
-            appointment_status_id: 5,
+            appointment_status_id: 2,
             service_id: 1,
             description: description
 
@@ -45,6 +48,7 @@ const ServiceRequestForm = (props) => {
                 Authorization: "Bearer " + token,
             }
         })
+        
     };
 
 
@@ -93,15 +97,19 @@ const ServiceRequestForm = (props) => {
             </div>
 
             <div>
+            <label>Title</label>
+            <input type='text' placeholder="Descriptive Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
+            </div>
+
+            <div>
             <label>Start</label>
-            <DatePicker selected={start} onChange={(date) => setStart(date)} showTimeSelect/> 
+            <input type='datetime-local' value={start} onChange={(event) => setStart(event.target.value)}/> 
             </div>
 
             <div>
             <label>End</label>
-            <DatePicker selected={end}  onChange={(date) => setEnd(date)} showTimeSelect/> 
+            <input type='datetime-local' value={end} onChange={(event) => setEnd(event.target.value)}/> 
             </div>
-
 
             <div>
             <label>Description</label>
