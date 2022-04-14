@@ -7,13 +7,11 @@ const Email = (props) => {
     const [form] = Form.useForm();
     const {TextArea} = Input;
     const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(
-        ''
-    );
+    sgMail.setApiKey('');
 
     const onComplete = (fields) => {
         const message = {
-            to: 'pocavo@gmail.com',
+            to: 'pryor.matthew.a@gmail.com',
             from: fields.email,
             subject: fields.subject,
             html: `
