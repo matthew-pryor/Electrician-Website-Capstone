@@ -8,7 +8,7 @@ const Email = (props) => {
     const {TextArea} = Input;
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(
-        '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'
+        ''
     );
 
     const onComplete = (fields) => {
