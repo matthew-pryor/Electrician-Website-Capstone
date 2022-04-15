@@ -3,46 +3,41 @@ import React, {useState} from "react";
 import useAuth from "../../hooks/useAuth";
 import "react-datepicker/dist/react-datepicker.css";
 
-const ServiceRequestForm = (props) => {
+const RegisterElectrician = (props) => {
 
     const [user, token] = useAuth();
-    const [first_name, setFirstName] = useState('');
-    const [last_name, setLastName] = useState('');
-    const [address, setAdderss] = useState('');
+    const [image, setImage] = useState('');
+    const [name, setName] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zip_code, setZipCode] = useState('');
     const [phone_number, setPhoneNumber] = useState('');
     const [email_address, setEmailAddress] = useState('');
-    const [title, setTitle] = useState('');
-    const [start, setStart] = useState('');
-    const [end, setEnd] = useState('');
-    const [description, setDescription] = useState('');
+    const [linkedin, setLinkedIn] = useState('');
+    const [about_me, setAboutMe] = useState('');
+    const [services, setServices] = useState('');
+    const [rates, setRates] = useState('');
 
     async function handleSubmitForm(event) {
         event.preventDefault();
         let newRequest = {
             user_id: user.id,
-            first_name: first_name,
-            last_name: last_name,
-            address: address,
+            user_type: 'Employee',
+            image: image,
+            name: name,
             city: city,
             state: state,
             zip_code: zip_code,
             phone_number: phone_number,
             email_address: email_address,
-            electrician_id: 1,
-            title: title,
-            start: start,
-            end: end,
-            appointment_status_id: 2,
-            service_id: 1,
-            description: description
-
+            linkedin: linkedin,
+            about_me: about_me,
+            services: services,
+            rates: rates,
         };
 
         console.log(newRequest);
-        await axios.post('http://127.0.0.1:8000/api/appointments/', newRequest, {
+        await axios.post('http://127.0.0.1:8000/api/customer_or_employee/electricians/', newRequest, {
             headers: {
                 Authorization: "Bearer " + token,
             }
@@ -53,22 +48,18 @@ const ServiceRequestForm = (props) => {
 
     return ( 
         <form onSubmit={handleSubmitForm}>
-            <h1>Schedule an Appointment:</h1>
+            <h1>Register as an Electrician Here:</h1>
 
             <div>
-            <label>First Name</label>
-            <input type='text' placeholder="First Name..." value={first_name} onChange={(event) => setFirstName(event.target.value)}/>
+            <label>Profile Picture</label>
+            <input type='text' placeholder="Upload IMG URL here..." value={image} onChange={(event) => setImage(event.target.value)}/>
             </div>
 
             <div>
-            <label>Last Name</label>
-            <input type='text' placeholder="Last Name..." value={last_name} onChange={(event) => setLastName(event.target.value)}/>
+            <label>Name</label>
+            <input type='text' required={true} placeholder="Name..." value={name} onChange={(event) => setName(event.target.value)}/>
             </div>
 
-            <div>
-            <label>Address</label>
-            <input type='text' placeholder="Address..." value={address} onChange={(event) => setAdderss(event.target.value)}/>  
-            </div>
 
             <div>
             <label>City</label>
@@ -96,23 +87,23 @@ const ServiceRequestForm = (props) => {
             </div>
 
             <div>
-            <label>Title</label>
-            <input type='text' placeholder="Descriptive Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
+            <label>LinkedIn Profile Link</label>
+            <input type='text' placeholder="Descriptive Title" value={linkedin} onChange={(event) => setLinkedIn(event.target.value)}/>
             </div>
 
             <div>
-            <label>Start</label>
-            <input type='datetime-local' value={start} onChange={(event) => setStart(event.target.value)}/> 
+            <label>About Me</label>
+            <textarea type='datetime-local' value={about_me} onChange={(event) => setAboutMe(event.target.value)}/> 
             </div>
 
             <div>
-            <label>End</label>
-            <input type='datetime-local' value={end} onChange={(event) => setEnd(event.target.value)}/> 
+            <label>Services</label>
+            <input type='Services Provided...' value={services} onChange={(event) => setServices(event.target.value)}/> 
             </div>
 
             <div>
-            <label>Description</label>
-            <input type='text' placeholder="Please provide as many details about the service you are requesting as possible" value={description} onChange={(event) => setDescription(event.target.value)}/>
+            <label>Rates</label>
+            <input type='text' placeholder="Rates for Common Services..." value={rates} onChange={(event) => setRates(event.target.value)}/>
             </div>
 
             <div>
@@ -123,4 +114,4 @@ const ServiceRequestForm = (props) => {
      );
 }
  
-export default ServiceRequestForm;
+export default RegisterElectrician;
