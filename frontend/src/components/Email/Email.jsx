@@ -56,7 +56,7 @@ const Email = (props) => {
                         <Input/>
                     </Form.Item>
 
-                    <Form.Item name='descripition' label='Description of Service' rules={[{required: true}]}>
+                    <Form.Item name='message' label='Description of Service' rules={[{required: true}]}>
                         <TextArea/>
                     </Form.Item>
 
