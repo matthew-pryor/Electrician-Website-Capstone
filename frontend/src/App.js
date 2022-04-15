@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import ServiceRequestPage from "./pages/ServiceRequestPage/ServiceRequestPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
+import RegisterElectrician from "./components/RegisterElectrician/RegisterElectrician";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/schedule" element={<ServiceRequestPage />} />
         <Route path="/landingpage" element={<LandingPage />} />
+        <Route path="/registerelectrician" element={<RegisterElectrician />} />
       </Routes>
       <Footer />
     </div>
