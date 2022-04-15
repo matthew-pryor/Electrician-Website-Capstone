@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
+import "./Paginate.css";
 
 const Paginate = (props) => {
   const [pageNumber, setPageNumber] = useState(0);
-  const gamesPerPage = 20;
-  const games = props.games;
-  const displayedGames = pageNumber * gamesPerPage;
-  const page = Math.ceil(games.length / gamesPerPage);
+  const electriciansPerPage = 1;
+  const electricians = props.electricians;
+  const displayedElectricians = pageNumber * gamesPerPage;
+  const page = Math.ceil(games.length / electriciansPerPage);
   const nextPage = ({ selected }) => {
     setPageNumber(selected);
   };
   const search = props.search
-  const results = games.length;
-    console.log('Games array:', games)
+  const results = electricians.length;
+    console.log('Electricians Array:', electricians)
 
   return (
     <div>
@@ -44,17 +45,17 @@ const Paginate = (props) => {
           </thead>
 
           <tbody>
-            {games
-              .slice(displayedGames, displayedGames + gamesPerPage)
-              .map((game, index) => {
+            {electricians
+              .slice(displayedElectricians, displayedElectricians + electriciansPerPage)
+              .map((electrician, index) => {
                 return (
                   <tr key={index}>
-                    <td>{game.rank}</td>
-                    <td>{game.name}</td>
-                    <td>{game.platform}</td>
-                    <td>{game.year}</td>
-                    <td>{game.genre}</td>
-                    <td>{game.publisher}</td>
+                    <td>{electrician.rank}</td>
+                    <td>{electrician.name}</td>
+                    <td>{electrician.platform}</td>
+                    <td>{electrician.year}</td>
+                    <td>{electrician.genre}</td>
+                    <td>{electrician.publisher}</td>
                   </tr>
                 );
               })}
