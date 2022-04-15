@@ -107,7 +107,7 @@ const RegisterElectrician = (props) => {
             </div>
 
             <div>
-            <button type="text" class="submit">Submit</button>
+            <button type="text" class="submit">Register</button>
             </div>
 
         </form>
