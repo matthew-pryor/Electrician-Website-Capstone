@@ -24,7 +24,7 @@ class Appointment(models.Model):
     end = models.DateTimeField(blank=False, default=datetime.now().strftime(("%Y-%m-%d %H:%M:%S")))
     appointment_status = models.ForeignKey(AppointmentStatus, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    description = models.CharField(max_length=3000)
+    description = models.CharField(max_length=1000)
     electrician_id = models.IntegerField()
 
 class Event(models.Model):

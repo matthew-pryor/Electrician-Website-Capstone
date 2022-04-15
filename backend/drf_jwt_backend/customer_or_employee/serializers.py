@@ -4,5 +4,5 @@ from .models import UserType
 class UserTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserType
-        fields = ['id', 'user_type', 'user_id']
+        fields = ['id', 'user_type', 'user_id', 'image', 'name', 'city', 'state', 'zip_code', 'phone_number', 'email_address', 'linkedin', 'about_me', 'services', 'rates']
         depth = 1
