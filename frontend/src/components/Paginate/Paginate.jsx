@@ -7,7 +7,7 @@ const Paginate = (props) => {
   const electriciansPerPage = 1;
   const electricians = props.electricians;
   const displayedElectricians = pageNumber * gamesPerPage;
-  const page = Math.ceil(games.length / electriciansPerPage);
+  const page = Math.ceil(electricians.length / electriciansPerPage);
   const nextPage = ({ selected }) => {
     setPageNumber(selected);
   };
