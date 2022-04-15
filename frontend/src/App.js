@@ -8,7 +8,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import ServiceRequestPage from "./pages/ServiceRequestPage/ServiceRequestPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
-import RegisterElectrician from "./components/RegisterElectrician/RegisterElectrician";
+import RegisterElectricianPage from "./pages/RegisterElectricianPage/RegisterElectricianPage";
+import ElectriciansPage from "./pages/ElectriciansPage/ElectriciansPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -34,7 +35,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/schedule" element={<ServiceRequestPage />} />
         <Route path="/landingpage" element={<LandingPage />} />
-        <Route path="/registerelectrician" element={<RegisterElectrician />} />
+        <Route path="/registerelectrician" element={<RegisterElectricianPage />} />
+        <Route path="/electricians" element={<ElectriciansPage />} />
       </Routes>
       <Footer />
     </div>
