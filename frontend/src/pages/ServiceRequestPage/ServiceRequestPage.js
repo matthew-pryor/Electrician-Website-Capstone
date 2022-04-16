@@ -1,6 +1,6 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
-import ServiceRequestForm from "../../components/ServiceRequestForm/ServiceRequestForm";
+import Email from "../../components/Email/Email";
 
 const ServiceRequestPage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -9,8 +9,8 @@ const ServiceRequestPage = () => {
 
   return (
     <div className="container">
-      <h1>Request Services Page</h1>
-        <ServiceRequestForm/>
+      <h1>Contact Me!</h1>
+        <Email/>
     </div>
   );
 };

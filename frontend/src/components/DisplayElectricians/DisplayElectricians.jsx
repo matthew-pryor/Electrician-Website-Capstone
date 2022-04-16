@@ -20,7 +20,7 @@ const DisplayElectricians = (props) => {
       <div>
         <h2>Showing {results} Related Results for '{search}':</h2>
       </div>
-      <div className="search-container">
+      <div>
         <div className="pagination-container">
           <div>
             <ReactPaginate
@@ -35,7 +35,7 @@ const DisplayElectricians = (props) => {
         <table className="search-table">
           <thead>
             <tr className="header">
-              <th>Electrician</th>
+              <th>Featured Electricians:</th>
             </tr>
           </thead>
 
@@ -45,17 +45,15 @@ const DisplayElectricians = (props) => {
               .map((electrician, index) => {
                 return (
                   <tr key={index}>
-                    <td><image src={electrician.image}/></td>
-                    <td>{electrician.name}</td>
-                    <td>{electrician.city}</td>
-                    <td>{electrician.state}</td>
-                    <td>{electrician.zip_code}</td>
-                    <td>{electrician.phone_number}</td>
-                    <td>{electrician.email_address}</td>
-                    <td>{electrician.linkedin}</td>
-                    <td>{electrician.about_me}</td>
-                    <td>{electrician.services}</td>
-                    <td>{electrician.rates}</td>
+                    <div><img src={electrician.image} width="193" height="130"/></div>
+                    <div>Name: {electrician.name}</div>
+                    <div>City: {electrician.city}</div>
+                    <div>Phone Number: {electrician.phone_number}</div>
+                    <div>Email: {electrician.email_address}</div>
+                    <div>LinkedIn: {electrician.linkedin}</div>
+                    <div>About Me: {electrician.about_me}</div>
+                    <div>Services Provided: {electrician.services}</div>
+                    <div>Rates: {electrician.rates}</div>
                   </tr>
                 );
               })}
