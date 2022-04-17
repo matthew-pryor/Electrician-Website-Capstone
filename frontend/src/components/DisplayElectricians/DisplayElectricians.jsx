@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import "./DisplayElectricians.css";
+import Email from "../Email/Email";
 
 const DisplayElectricians = (props) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -34,7 +35,7 @@ const DisplayElectricians = (props) => {
         <table className="search-table">
           <thead>
             <tr className="header">
-              <th>Featured Electricians:</th>
+              <h1>Featured Electricians:</h1>
             </tr>
           </thead>
 
@@ -53,6 +54,10 @@ const DisplayElectricians = (props) => {
                     <div>About Me: {electrician.about_me}</div>
                     <div>Services Provided: {electrician.services}</div>
                     <div>Rates: {electrician.rates}</div>
+                    <div>
+                      <h1>Contact Me!</h1>
+                      <Email email={electrician.email}/>
+                    </div>
                   </tr>
                 );
               })}

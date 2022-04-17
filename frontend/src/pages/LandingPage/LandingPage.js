@@ -9,8 +9,7 @@ const LandingPage = () => {
 
   return (
     <div>
-      <h1>Contact Us</h1>
-        <Email/>
+      <h1>Yarp</h1>
     </div>
   );
 };
