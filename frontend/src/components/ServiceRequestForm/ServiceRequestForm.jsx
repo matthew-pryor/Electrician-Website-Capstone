@@ -18,6 +18,7 @@ const ServiceRequestForm = (props) => {
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
     const [description, setDescription] = useState('');
+    const electrician_id = props.electricianId;
 
     async function handleSubmitForm(event) {
         event.preventDefault();
@@ -31,12 +32,11 @@ const ServiceRequestForm = (props) => {
             zip_code: zip_code,
             phone_number: phone_number,
             email_address: email_address,
-            electrician_id: 1,
+            electrician_id: electrician_id,
             title: title,
             start: start,
             end: end,
             appointment_status_id: 2,
-            service_id: 1,
             description: description
 
         };

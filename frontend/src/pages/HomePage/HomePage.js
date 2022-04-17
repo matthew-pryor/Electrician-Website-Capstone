@@ -12,7 +12,8 @@ const HomePage = () => {
   const [user, token] = useAuth();
   const [electricians, setElectricians] = useState([]);
   const [matchingElectricians, setMatchingElectricians] = useState([]);
-  const [yup, setYup] = useState()
+  const [verified, setVerified] = useState(true)
+  const [eId, setEId] = useState(1)
 
   async function fetchElectricians() {
     let response = await axios.get('http://127.0.0.1:8000/api/customer_or_employee/all/');
@@ -21,10 +22,13 @@ const HomePage = () => {
 
   const emptyArray = (array) => {
     if (array.length === 0) {
-      setYup(false)
+      //setVerified(false)
     }
     else{
-      setYup(true)
+      //setVerified(true);
+      console.log(matchingElectricians[0].id);
+      setEId(matchingElectricians[0].id);
+      console.log(eId)
     }
     }
 
@@ -43,6 +47,7 @@ const HomePage = () => {
   useEffect(() => {
     fetchElectricians();
     filterElectricianUsers(user.id);
+    console.log(electricians);
     emptyArray(matchingElectricians);
     }, [token]);
 
@@ -50,8 +55,8 @@ const HomePage = () => {
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
       <Calendar/>
-        {yup && <ServiceRequestForm/>}
-        {!yup && (<h1>Customer Account</h1>)}
+        {verified && <ServiceRequestForm electricianId = {eId}/>}
+        {!verified && (<h1>Customer Account</h1>)}
     </div>
   );
 };
