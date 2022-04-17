@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import DisplayElectricians from "../../components/DisplayElectricians/DisplayElectricians";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -10,6 +9,7 @@ const ElectriciansPage = () => {
   const [electricians, setElectricians] = useState([]);
   const [displayedElectricians, setDisplayedElectricians] = useState([]);
   const [search, setSearch] = useState('')
+  
 
   useEffect(() => {
     getAllElectricians();

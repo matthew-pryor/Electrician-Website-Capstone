@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
+import ServiceRequestForm from "../../components/ServiceRequestForm/ServiceRequestForm";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import Calendar from "../../components/Calendar/Calendar";
@@ -9,35 +9,50 @@ const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   const [user, token] = useAuth();
-  const [cars, setCars] = useState([]);
+  const [electricians, setElectricians] = useState([]);
+  const [displayedElectricians, setDisplayedElectricians] = useState([]);
+  const [verifiedEmployee, setVerifiedEmployee] = useState()
+
+  const filterElectricianUsers = (searchElectrician) => {
+    let verifiedElectrician = false;
+    let matchingElectricians = electricians.filter((electrician)=>{
+        if (electrician.user_id.toString().includes(searchElectrician)){
+            verifiedElectrician = true;
+            return verifiedElectrician
+        }
+        else{
+            verifiedElectrician = false;
+            return verifiedElectrician
+        }
+    })
+    console.log(verifiedElectrician)
+    setVerifiedEmployee(verifiedElectrician)
+  };
+
+  async function fetchElectricians() {
+    let response = await axios.get('http://127.0.0.1:8000/api/customer_or_employee/all/');
+    setElectricians(response.data);
+  };
 
   useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        });
-        setCars(response.data);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchCars();
-  }, [token]);
+    fetchElectricians();
+    console.log(electricians)
+    filterElectricianUsers(user.id)
+    console.log(displayedElectricians)
+    console.log(verifiedEmployee)
+    }, [token]);
+
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
-      {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))}
-        <Calendar/>
+      <Calendar/>
+        {verifiedEmployee && <ServiceRequestForm/>}
+        {!verifiedEmployee && (<h1>Customer Account</h1>)}
     </div>
   );
 };
 
 export default HomePage;
+
+// {filterElectricianUsers(user.username) && <ServiceRequestForm/>}
+// {!filterElectricianUsers(user.username) && null}
