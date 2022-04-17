@@ -17,6 +17,7 @@ const RegisterElectrician = (props) => {
     const [about_me, setAboutMe] = useState('');
     const [services, setServices] = useState('');
     const [rates, setRates] = useState('');
+    const [credentials, setCredentials] = useState('');
 
     async function handleSubmitForm(event) {
         event.preventDefault();
@@ -34,6 +35,7 @@ const RegisterElectrician = (props) => {
             about_me: about_me,
             services: services,
             rates: rates,
+            credentials: credentials
         };
 
         console.log(newRequest);
@@ -97,8 +99,13 @@ const RegisterElectrician = (props) => {
             </div>
 
             <div>
+            <label>Credentials</label>
+            <textarea type='text' placeholder="Credentials..." value={credentials} onChange={(event) => setCredentials(event.target.value)}/> 
+            </div>
+
+            <div>
             <label>Services</label>
-            <input type='Services Provided...' value={services} onChange={(event) => setServices(event.target.value)}/> 
+            <input type='text' placeholder="Services Provided..." value={services} onChange={(event) => setServices(event.target.value)}/> 
             </div>
 
             <div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import "./DisplayElectricians.css";
 import Email from "../Email/Email";
+import EmployeeCalendar from "../EmployeeCalendar/EmployeeCalendar"
 
 const DisplayElectricians = (props) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -52,10 +53,15 @@ const DisplayElectricians = (props) => {
                     <div>Email: {electrician.email_address}</div>
                     <div>LinkedIn: {electrician.linkedin}</div>
                     <div>About Me: {electrician.about_me}</div>
+                    <div>Credentials: {electrician.credentials}</div>
                     <div>Services Provided: {electrician.services}</div>
                     <div>Rates: {electrician.rates}</div>
                     <div>
-                      <h1>Contact Me!</h1>
+                      <h1>Calendar</h1>
+                      <EmployeeCalendar eId={electrician.id}/>
+                    </div>
+                    <div>
+                      <h1>Contact Me</h1>
                       <Email email={electrician.email}/>
                     </div>
                   </tr>

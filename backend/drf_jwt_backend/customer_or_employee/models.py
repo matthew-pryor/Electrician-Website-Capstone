@@ -22,6 +22,7 @@ class UserType(models.Model):
     email_address = models.CharField(max_length=255)
     linkedin = models.CharField(max_length=999)
     about_me = models.CharField(max_length=1000)
+    credentials = models.CharField(max_length=1000)
     services = models.CharField(max_length=1000)
     rates = models.CharField(max_length=1000)
 

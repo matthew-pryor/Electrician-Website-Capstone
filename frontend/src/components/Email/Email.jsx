@@ -13,7 +13,7 @@ const Email = (props) => {
 
     const onComplete = (fields) => {
         const message = {
-            to: 'pryor.matthew.a@gmail.com',
+            to: email,
             from: fields.email,
             subject: fields.subject,
             html: `

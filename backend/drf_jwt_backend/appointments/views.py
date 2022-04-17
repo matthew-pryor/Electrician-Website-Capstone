@@ -26,7 +26,7 @@ class Events(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def user_appointments_by_electrician_id(request):
 
     appointments_param = request.query_params.get('electrician_id')
@@ -45,7 +45,7 @@ def user_appointments_by_electrician_id(request):
 
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def user_appointments(request):
 
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
