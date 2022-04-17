@@ -13,7 +13,7 @@ const HomePage = () => {
   const [electricians, setElectricians] = useState([]);
   const [matchingElectricians, setMatchingElectricians] = useState([]);
   const [verified, setVerified] = useState(true)
-  const [eId, setEId] = useState(1)
+  const [eId, setEId] = useState(2)
 
   async function fetchElectricians() {
     let response = await axios.get('http://127.0.0.1:8000/api/customer_or_employee/all/');
@@ -49,6 +49,7 @@ const HomePage = () => {
     filterElectricianUsers(user.id);
     console.log(electricians);
     emptyArray(matchingElectricians);
+    console.log(eId)
     }, [token]);
 
   return (

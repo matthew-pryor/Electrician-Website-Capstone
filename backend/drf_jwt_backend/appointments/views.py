@@ -45,7 +45,7 @@ def user_appointments_by_electrician_id(request):
 
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def user_appointments(request):
 
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")

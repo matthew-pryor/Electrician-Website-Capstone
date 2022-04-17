@@ -96,8 +96,8 @@ const ServiceRequestForm = (props) => {
             </div>
 
             <div>
-            <div></div><label>Title</label>
-            <div></div><input type='text' placeholder="Descriptive Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
+            <div><label>Title</label></div>
+            <div><input type='text' placeholder="Descriptive Title" value={title} onChange={(event) => setTitle(event.target.value)}/></div>
             </div>
 
             <div>

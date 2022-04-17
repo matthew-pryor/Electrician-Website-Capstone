@@ -36,7 +36,7 @@ const Calendar = (props) => {
         
       }}
       initialView='dayGridMonth'
-      timeZone='local'
+      timeZone='CST'
       editable={true}
       selectable={true}
       selectMirror={true}
