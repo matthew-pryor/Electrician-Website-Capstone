@@ -11,14 +11,13 @@ const DisplayElectricians = (props) => {
   const nextPage = ({ selected }) => {
     setPageNumber(selected);
   };
-  const search = props.search
   const results = electricians.length;
     console.log('Electricians Array:', electricians)
 
   return (
     <div>
       <div>
-        <h2>Showing {results} Related Results for '{search}':</h2>
+        <h2>Showing {results} Results</h2>
       </div>
       <div>
         <div className="pagination-container">

@@ -8,7 +8,6 @@ const ElectriciansPage = () => {
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   const [electricians, setElectricians] = useState([]);
   const [displayedElectricians, setDisplayedElectricians] = useState([]);
-  const [search, setSearch] = useState('')
   
 
   useEffect(() => {
@@ -32,7 +31,6 @@ const ElectriciansPage = () => {
               return false;
           }
       })
-      setSearch(searchElectrician)
       setDisplayedElectricians(matchingElectricians)
   }
 
@@ -41,7 +39,7 @@ const ElectriciansPage = () => {
 
     <SearchBar filterElectricians={filterElectricians}/>
 
-    <DisplayElectricians electricians={displayedElectricians} search={search}/>
+    <DisplayElectricians electricians={displayedElectricians}/>
 
     </div>
   );
