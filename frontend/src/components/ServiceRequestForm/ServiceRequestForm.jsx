@@ -56,63 +56,63 @@ const ServiceRequestForm = (props) => {
             <h1>Schedule an Appointment:</h1>
 
             <div>
-            <label>First Name</label>
-            <input type='text' placeholder="First Name..." value={first_name} onChange={(event) => setFirstName(event.target.value)}/>
+            <div><label>First Name</label></div>
+            <div><input type='text' placeholder="First Name..." value={first_name} onChange={(event) => setFirstName(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Last Name</label>
-            <input type='text' placeholder="Last Name..." value={last_name} onChange={(event) => setLastName(event.target.value)}/>
+            <div><label>Last Name</label></div>
+            <div><input type='text' placeholder="Last Name..." value={last_name} onChange={(event) => setLastName(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Address</label>
-            <input type='text' placeholder="Address..." value={address} onChange={(event) => setAdderss(event.target.value)}/>  
+            <div><label>Address</label></div>
+            <div><input type='text' placeholder="Address..." value={address} onChange={(event) => setAdderss(event.target.value)}/></div>  
             </div>
 
             <div>
-            <label>City</label>
-            <input type='text' placeholder="City..." value={city} onChange={(event) => setCity(event.target.value)}/>
+            <div><label>City</label></div>
+            <div><input type='text' placeholder="City..." value={city} onChange={(event) => setCity(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>State</label>
-            <input type='text' placeholder="State..." value={state} onChange={(event) => setState(event.target.value)}/>   
+            <div><label>State</label></div>
+            <div><input type='text' placeholder="State..." value={state} onChange={(event) => setState(event.target.value)}/></div>   
             </div>
 
             <div>
-            <label>Zip Code</label>
-            <input type='text' placeholder="XXXXX" value={zip_code} onChange={(event) => setZipCode(event.target.value)}/>
+            <div><label>Zip Code</label></div>
+            <div><input type='text' placeholder="XXXXX" value={zip_code} onChange={(event) => setZipCode(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Phone Number</label>
-            <input type='text' placeholder="XXX-XXX-XXXX" value={phone_number} onChange={(event) => setPhoneNumber(event.target.value)}/>
+            <div><label>Phone Number</label></div>
+            <div><input type='text' placeholder="XXX-XXX-XXXX" value={phone_number} onChange={(event) => setPhoneNumber(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Email Address</label>
-            <input type='text' placeholder="XXXX@email.com" value={email_address} onChange={(event) => setEmailAddress(event.target.value)}/>
+            <div><label>Email Address</label></div>
+            <div><input type='text' placeholder="XXXX@email.com" value={email_address} onChange={(event) => setEmailAddress(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Title</label>
-            <input type='text' placeholder="Descriptive Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
+            <div></div><label>Title</label>
+            <div></div><input type='text' placeholder="Descriptive Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
             </div>
 
             <div>
-            <label>Start</label>
-            <input type='datetime-local' value={start} onChange={(event) => setStart(event.target.value)}/> 
+            <div><label>Start</label></div>
+            <div><input type='datetime-local' value={start} onChange={(event) => setStart(event.target.value)}/> </div>
             </div>
 
             <div>
-            <label>End</label>
-            <input type='datetime-local' value={end} onChange={(event) => setEnd(event.target.value)}/> 
+            <div><label>End</label></div>
+            <div><input type='datetime-local' value={end} onChange={(event) => setEnd(event.target.value)}/> </div>
             </div>
 
             <div>
-            <label>Description</label>
-            <input type='text' placeholder="Please provide as many details about the service you are requesting as possible" value={description} onChange={(event) => setDescription(event.target.value)}/>
+            <div><label>Description</label></div>
+            <div><input type='text' placeholder="Description..." value={description} onChange={(event) => setDescription(event.target.value)}/></div>
             </div>
 
             <div>

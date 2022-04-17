@@ -5,28 +5,27 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import Calendar from "../../components/Calendar/Calendar";
 
+
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   const [user, token] = useAuth();
   const [electricians, setElectricians] = useState([]);
-  const [displayedElectricians, setDisplayedElectricians] = useState([]);
   const [verifiedEmployee, setVerifiedEmployee] = useState()
 
   const filterElectricianUsers = (searchElectrician) => {
-    let verifiedElectrician = false;
-    let matchingElectricians = electricians.filter((electrician)=>{
+    let match = electricians.filter((electrician)=>{
         if (electrician.user_id.toString().includes(searchElectrician)){
-            verifiedElectrician = true;
+            let verifiedElectrician = true;
             return verifiedElectrician
         }
         else{
-            verifiedElectrician = false;
+            let verifiedElectrician = false;
             return verifiedElectrician
         }
     })
-    console.log(verifiedElectrician)
-    setVerifiedEmployee(verifiedElectrician)
+    setVerifiedEmployee(match)
+    console.log(match)
   };
 
   async function fetchElectricians() {
@@ -36,10 +35,8 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchElectricians();
-    console.log(electricians)
-    filterElectricianUsers(user.id)
-    console.log(displayedElectricians)
-    console.log(verifiedEmployee)
+    console.log(electricians);
+    filterElectricianUsers(user.id);
     }, [token]);
 
   return (
