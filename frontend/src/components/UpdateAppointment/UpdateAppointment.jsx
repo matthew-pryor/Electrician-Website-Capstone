@@ -64,6 +64,15 @@ const UpdateAppointment = (props) => {
         
     };
 
+    async function submitDelete(event) {
+        event.preventDefault();
+        await axios.delete(`http://127.0.0.1:8000/api/appointments/${appointment_id}/`, {
+            headers: {
+                Authorization: "Bearer " + token,
+            }
+        })
+    }
+
 
     return ( 
         <form onSubmit={handleSubmitForm}>
@@ -136,6 +145,7 @@ const UpdateAppointment = (props) => {
 
             <div>
             <button className="button" type="text" class="submit">Submit</button>
+            <button className="button" type="text" onClick={submitDelete}>Delete</button>
             </div>
 
         </form>
