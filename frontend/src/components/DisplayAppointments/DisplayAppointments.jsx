@@ -103,7 +103,7 @@ const DisplayAppointments = (props) => {
                     end={appointment.end}
                     description={appointment.description}
                     electrician_id={appointment.electrician_id}
-                    /> } <button onClick={()=>{setShowElem(!showElem)}} className="button">Update</button></td>
+                    /> } <button onClick={()=>{setShowElem(!showElem)}} className="button">Edit</button></td>
                   </tr>
                 );
               })}

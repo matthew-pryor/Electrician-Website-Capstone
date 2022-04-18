@@ -144,7 +144,7 @@ const UpdateAppointment = (props) => {
             </div>
 
             <div>
-            <button className="button" type="text" class="submit">Submit</button>
+            <button className="button" type="text" class="submit">Update</button>
             <button className="button" type="text" onClick={submitDelete}>Delete</button>
             </div>
 
