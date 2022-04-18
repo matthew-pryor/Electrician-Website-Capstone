@@ -54,13 +54,7 @@ const Calendar = (props) => {
         }
       }
       />
-
-      <div>
-        <Link to="/"><button>Confirm</button></Link>
-      </div>
-
     </div>
-
   </div>);
 }
 

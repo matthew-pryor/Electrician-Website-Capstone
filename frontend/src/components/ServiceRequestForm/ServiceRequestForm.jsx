@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useState} from "react";
 import useAuth from "../../hooks/useAuth";
 import "react-datepicker/dist/react-datepicker.css";
+import "./ServiceRequestForm.css"
 
 const ServiceRequestForm = (props) => {
 
@@ -57,47 +58,47 @@ const ServiceRequestForm = (props) => {
 
             <div>
             <div><label>First Name</label></div>
-            <div><input type='text' placeholder="First Name..." value={first_name} onChange={(event) => setFirstName(event.target.value)}/></div>
+            <div><input className="input" type='text' placeholder="First Name..." value={first_name} onChange={(event) => setFirstName(event.target.value)}/></div>
             </div>
 
             <div>
             <div><label>Last Name</label></div>
-            <div><input type='text' placeholder="Last Name..." value={last_name} onChange={(event) => setLastName(event.target.value)}/></div>
+            <div><input className="input" type='text' placeholder="Last Name..." value={last_name} onChange={(event) => setLastName(event.target.value)}/></div>
             </div>
 
             <div>
             <div><label>Address</label></div>
-            <div><input type='text' placeholder="Address..." value={address} onChange={(event) => setAdderss(event.target.value)}/></div>  
+            <div><input className="input" type='text' placeholder="Address..." value={address} onChange={(event) => setAdderss(event.target.value)}/></div>  
             </div>
 
             <div>
             <div><label>City</label></div>
-            <div><input type='text' placeholder="City..." value={city} onChange={(event) => setCity(event.target.value)}/></div>
+            <div><input className="input" type='text' placeholder="City..." value={city} onChange={(event) => setCity(event.target.value)}/></div>
             </div>
 
             <div>
             <div><label>State</label></div>
-            <div><input type='text' placeholder="State..." value={state} onChange={(event) => setState(event.target.value)}/></div>   
+            <div><input className="input" type='text' placeholder="State..." value={state} onChange={(event) => setState(event.target.value)}/></div>   
             </div>
 
             <div>
             <div><label>Zip Code</label></div>
-            <div><input type='text' placeholder="XXXXX" value={zip_code} onChange={(event) => setZipCode(event.target.value)}/></div>
+            <div><input className="input" type='text' placeholder="XXXXX" value={zip_code} onChange={(event) => setZipCode(event.target.value)}/></div>
             </div>
 
             <div>
             <div><label>Phone Number</label></div>
-            <div><input type='text' placeholder="XXX-XXX-XXXX" value={phone_number} onChange={(event) => setPhoneNumber(event.target.value)}/></div>
+            <div><input className="input" type='text' placeholder="XXX-XXX-XXXX" value={phone_number} onChange={(event) => setPhoneNumber(event.target.value)}/></div>
             </div>
 
             <div>
             <div><label>Email Address</label></div>
-            <div><input type='text' placeholder="XXXX@email.com" value={email_address} onChange={(event) => setEmailAddress(event.target.value)}/></div>
+            <div><input className="input" type='text' placeholder="XXXX@email.com" value={email_address} onChange={(event) => setEmailAddress(event.target.value)}/></div>
             </div>
 
             <div>
             <div><label>Title</label></div>
-            <div><input type='text' placeholder="Descriptive Title" value={title} onChange={(event) => setTitle(event.target.value)}/></div>
+            <div><input className="input" type='text' placeholder="Descriptive Title" value={title} onChange={(event) => setTitle(event.target.value)}/></div>
             </div>
 
             <div>
@@ -112,11 +113,11 @@ const ServiceRequestForm = (props) => {
 
             <div>
             <div><label>Description</label></div>
-            <div><input type='text' placeholder="Description..." value={description} onChange={(event) => setDescription(event.target.value)}/></div>
+            <div><textarea className="box" type='text' placeholder="Description..." value={description} onChange={(event) => setDescription(event.target.value)}/></div>
             </div>
 
             <div>
-            <button type="text" class="submit">Submit</button>
+            <button className="button" type="text" class="submit">Submit</button>
             </div>
 
         </form>
