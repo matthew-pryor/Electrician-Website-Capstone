@@ -5,21 +5,34 @@ import "./UpdateAppointment.css"
 
 const UpdateAppointment = (props) => {
 
-    const appointment_id = props.appointment_id
+    const appointment_id = props.appointment_id;
+    const lastName=props.last_name;
+    const firstName=props.first_name;
+    const customerAddress=props.address;
+    const customerCity=props.city;
+    const customerState=props.state;
+    const zipCode=props.zip_code;
+    const customerEmail=props.email_address;
+    const phoneNumber=props.phone_number;
+    const customerTitle=props.title;
+    const customerStart=props.start;
+    const customerEnd=props.end;
+    const customerDescription=props.description;
     const [user, token] = useAuth();
-    const [first_name, setFirstName] = useState('');
-    const [last_name, setLastName] = useState('');
-    const [address, setAdderss] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [zip_code, setZipCode] = useState('');
-    const [phone_number, setPhoneNumber] = useState('');
-    const [email_address, setEmailAddress] = useState('');
-    const [title, setTitle] = useState('');
-    const [start, setStart] = useState('');
-    const [end, setEnd] = useState('');
-    const [description, setDescription] = useState('');
-    const electrician_id = props.electricianId;
+    const [first_name, setFirstName] = useState(lastName);
+    const [last_name, setLastName] = useState(firstName);
+    const [address, setAdderss] = useState(customerAddress);
+    const [city, setCity] = useState(customerCity);
+    const [state, setState] = useState(customerState);
+    const [zip_code, setZipCode] = useState(zipCode);
+    const [phone_number, setPhoneNumber] = useState(phoneNumber);
+    const [email_address, setEmailAddress] = useState(customerEmail);
+    const [title, setTitle] = useState(customerTitle);
+    const [start, setStart] = useState(customerStart);
+    const [end, setEnd] = useState(customerEnd);
+    const [description, setDescription] = useState(customerDescription);
+    const [electrician_id, setElictricianId] = useState('');
+    const [appointment_status_id, setAppointmentStatus] = useState('')
 
     async function handleSubmitForm(event) {
         event.preventDefault();
@@ -37,7 +50,7 @@ const UpdateAppointment = (props) => {
             title: title,
             start: start,
             end: end,
-            appointment_status_id: 2,
+            appointment_status_id: appointment_status_id,
             description: description
 
         };
@@ -94,6 +107,11 @@ const UpdateAppointment = (props) => {
             <div>
             <div><label>Email Address</label></div>
             <div><input className="input" type='text' placeholder="XXXX@email.com" value={email_address} onChange={(event) => setEmailAddress(event.target.value)}/></div>
+            </div>
+
+            <div>
+            <div><label>Appointment Status</label></div>
+            <div><input className="input" type='number' placeholder="1 = Complete, 2 = Scheduled, 3 = Processing, 4 = Canceled " value={appointment_id} onChange={(event) => setAppointmentStatus(event.target.value)}/></div>
             </div>
 
             <div>
