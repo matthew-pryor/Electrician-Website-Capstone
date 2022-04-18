@@ -10,6 +10,8 @@ import ServiceRequestPage from "./pages/ServiceRequestPage/ServiceRequestPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import RegisterElectricianPage from "./pages/RegisterElectricianPage/RegisterElectricianPage";
 import ElectriciansPage from "./pages/ElectriciansPage/ElectriciansPage";
+import UpdateAppointmentPage from "./pages/UpdateAppointmentPage/UpdateAppointmentPage";
+import ContactMePage from "./pages/ContactMePage/ContactMePage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -38,6 +40,8 @@ function App() {
         <Route path="/landingpage" element={<LandingPage />} />
         <Route path="/registerelectrician" element={<RegisterElectricianPage />} />
         <Route path="/electricians" element={<ElectriciansPage />} />
+        <Route path="/contactme" element={<ContactMePage />} />
+        <Route path="/updateappointment" element={<UpdateAppointmentPage />} />
       </Routes>
       <Footer />
     </div>

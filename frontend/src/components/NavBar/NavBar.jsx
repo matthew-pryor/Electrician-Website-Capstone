@@ -17,8 +17,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <button className="button">Join the Team</button>
-          <button className="button">Electricians</button>
+          <button className="button" onClick={() => navigate("/registerelectrician")}>Join the Team</button>
+          <button className="button" onClick={() => navigate("/electricians")}>Electricians</button>
           {user ? (
             <button className="button" onClick={logoutUser}>Logout</button>
           ) : (
