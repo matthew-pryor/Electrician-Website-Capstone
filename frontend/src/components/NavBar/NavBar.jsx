@@ -17,10 +17,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <button className="button">Join the Team</button>
+          <button className="button">Electricians</button>
           {user ? (
-            <button onClick={logoutUser}>Logout</button>
+            <button className="button" onClick={logoutUser}>Logout</button>
           ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
+            <button className="button" onClick={() => navigate("/login")}>Login</button>
           )}
         </li>
       </ul>
