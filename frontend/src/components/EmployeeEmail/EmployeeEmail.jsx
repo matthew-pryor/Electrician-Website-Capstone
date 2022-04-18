@@ -8,6 +8,8 @@ const EmployeeEmail = (props) => {
     const [form] = Form.useForm();
     const {TextArea} = Input;
     const email = props.email;
+    const start = props.start;
+    const end = props.end;
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey('');
 
@@ -15,14 +17,15 @@ const EmployeeEmail = (props) => {
         const message = {
             to: email,
             from: fields.email,
-            subject: 'BlueCollar Electrical Solutions - APPOINTMENT SCHEDULED',
+            subject: `BlueCollar Electrical Solutions - APPOINTMENT SCHEDULED with ${fields.name}`,
             html: `
-            <p><strong>Name:</strong> ${fields.name}</p>
+            <p><strong>Electrician:</strong> ${fields.name}</p>
             <p><strong>Email:</strong> ${fields.email}</p>
             <p><strong>Phone Number:</strong> ${fields.phone}</p>
-            <p><strong>Date Requested Services:</strong> ${fields.date}</p>
+            <p><strong>Appointment Scheduled from</strong> ${start} <strong>to </strong> ${end}</p>
             <p>${fields.message}</p>
-            `
+            `,
+            send_at: parseInt(fields.epoch),
         }
         
         sgMail
@@ -53,11 +56,7 @@ const EmployeeEmail = (props) => {
                         <Input style={{width: 500}}/>
                     </Form.Item>
 
-                    <Form.Item name='date' label='Requested Date for Services' rules={[{required: true}]}>
-                        <Input style={{width: 500}}/>
-                    </Form.Item>
-
-                    <Form.Item name='subject' label='Subject' rules={[{required: true}]}>
+                    <Form.Item name='epoch' label='Epoch Date' rules={[{required: true}]}>
                         <Input style={{width: 500}}/>
                     </Form.Item>
 

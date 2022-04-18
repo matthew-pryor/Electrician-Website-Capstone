@@ -106,7 +106,11 @@ const DisplayAppointments = (props) => {
                     description={appointment.description}
                     electrician_id={appointment.electrician_id}
                     /> } <button onClick={()=>{setShowElem(!showElem)}} className="button">Edit</button></td>
-                    <td>{ showEmail && <EmployeeEmail email={appointment.email_address}/> } <button onClick={()=>{setShowEmail(!showEmail)}} className="button">Contact Me!</button></td>
+                    <td>{ showEmail && <EmployeeEmail 
+                    email={appointment.email_address}
+                    start={appointment.start}
+                    end={appointment.end}
+                    /> } <button onClick={()=>{setShowEmail(!showEmail)}} className="button">Email</button></td>
                   </tr>
                 );
               })}
