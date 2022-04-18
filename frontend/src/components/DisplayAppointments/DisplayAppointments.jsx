@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
+import "./DisplayAppointments.css";
 import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios'
 
@@ -47,10 +48,10 @@ const DisplayAppointments = (props) => {
             />
           </div>
         </div>
+        <div className="container">
         <table className="search-table">
           <thead>
             <tr className="header">
-            <th>Appointments:</th>
               <th>Appointment ID</th>
               <th>First Name</th>
               <th>Last Name</th>
@@ -83,6 +84,7 @@ const DisplayAppointments = (props) => {
               })}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );
