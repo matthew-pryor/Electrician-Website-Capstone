@@ -27,7 +27,7 @@ const HomePage = () => {
     else{
       //setVerified(true);
       console.log(matchingElectricians[0].id);
-      setEId(matchingElectricians[0].id);
+      //setEId(matchingElectricians[0].id);
       console.log(eId)
     }
     }
@@ -55,7 +55,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
-      <Calendar/>
+      <Calendar userId={user.id}/>
         {verified && <ServiceRequestForm electricianId = {eId}/>}
         {!verified && (<h1>Customer Account</h1>)}
     </div>

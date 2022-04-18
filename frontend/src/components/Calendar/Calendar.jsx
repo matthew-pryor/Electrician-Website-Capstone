@@ -9,11 +9,12 @@ import { Link } from "react-router-dom";
 const Calendar = (props) => {
 
   const [events, setEvents] = useState([]);
+  const userId = props.userId
 
   useEffect(()=>{
     const fetchEvents = async () => {
       try {
-        let response = await axios.get('http://127.0.0.1:8000/api/appointments/all/');
+        let response = await axios.get(`http://127.0.0.1:8000/api/appointments/user_id?user_id=${userId}`);
         setEvents(response.data);
       }
       catch(error){

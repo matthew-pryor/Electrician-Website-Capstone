@@ -8,13 +8,14 @@ import axios from 'axios'
 const EmployeeCalendar = (props) => {
 
   const [events, setEvents] = useState([]);
-  const eId = props.eId
+  const electricianId = props.eId
 
   useEffect(()=>{
     const fetchEvents = async () => {
       try {
-        let response = await axios.get(`http://127.0.0.1:8000/api/appointments/electrician_id?electrician_id=${eId}`);
+        let response = await axios.get(`http://127.0.0.1:8000/api/appointments/electrician_id?electrician_id=${electricianId}`);
         setEvents(response.data);
+        console.log(electricianId)
       }
       catch(error){
         console.log(error.message)
@@ -36,7 +37,7 @@ const EmployeeCalendar = (props) => {
         
       }}
       initialView='dayGridMonth'
-      timeZone='local'
+      timeZone='CST'
       editable={true}
       selectable={true}
       selectMirror={true}

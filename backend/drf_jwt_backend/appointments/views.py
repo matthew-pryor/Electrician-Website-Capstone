@@ -43,9 +43,27 @@ def user_appointments_by_electrician_id(request):
     serializer = AppointmentSerializer(appointments, many=True)
     return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def user_appointments_by_user_id(request):
+
+    appointments_param = request.query_params.get('user_id')
+    sort_param = request.query_params.get('sort')
+
+    appointments = Appointment.objects.all()
+
+    if appointments_param:
+        appointments = appointments.filter(user_id=appointments_param)
+
+    if sort_param:
+        appointments = appointments.order_by(sort_param)
+
+    serializer = AppointmentSerializer(appointments, many=True)
+    return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def user_appointments(request):
 
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
