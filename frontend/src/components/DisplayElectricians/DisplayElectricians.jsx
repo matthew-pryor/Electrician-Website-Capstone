@@ -3,8 +3,12 @@ import ReactPaginate from "react-paginate";
 import "./DisplayElectricians.css";
 import Email from "../Email/Email";
 import EmployeeCalendar from "../EmployeeCalendar/EmployeeCalendar"
+import { useNavigate, Link } from "react-router-dom";
 
 const DisplayElectricians = (props) => {
+  const navigate = useNavigate();
+  const [showElem, setShowElem] = useState(false);
+  const [showContact, setShowContact] = useState(false)
   const [pageNumber, setPageNumber] = useState(0);
   const electriciansPerPage = 1;
   const electricians = props.electricians;
@@ -12,6 +16,8 @@ const DisplayElectricians = (props) => {
   const page = Math.ceil(electricians.length / electriciansPerPage);
   const nextPage = ({ selected }) => {
     setPageNumber(selected);
+    setShowElem(!showElem)
+    setShowContact(!showContact)
   };
   const results = electricians.length;
     console.log('Electricians Array:', electricians)
@@ -56,14 +62,8 @@ const DisplayElectricians = (props) => {
                     <div>Credentials: {electrician.credentials}</div>
                     <div>Services Provided: {electrician.services}</div>
                     <div>Rates: {electrician.rates}</div>
-                    <div>
-                      <h1>Calendar</h1>
-                      <EmployeeCalendar eId={electrician.id}/>
-                    </div>
-                    <div>
-                      <h1>Contact Me</h1>
-                      <Email email={electrician.email}/>
-                    </div>
+                    <div>{ showElem && <EmployeeCalendar eId={electrician.id}/> } <button onClick={()=>{setShowElem(!showElem)}} className="button">View Availability</button></div>
+                    <div>{ showContact && <Email email={electrician.email}/> } <button onClick={()=>{setShowContact(!showContact)}} className="button">Contact Me!</button></div>
                   </tr>
                 );
               })}
