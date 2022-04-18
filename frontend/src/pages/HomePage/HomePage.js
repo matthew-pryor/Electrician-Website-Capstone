@@ -14,7 +14,7 @@ const HomePage = () => {
   const [user, token] = useAuth();
   const [electricians, setElectricians] = useState([]);
   const [matchingElectricians, setMatchingElectricians] = useState([]);
-  const [verified, setVerified] = useState()
+  const [verified, setVerified] = useState(false)
   const [eId, setEId] = useState()
 
   async function fetchElectricians() {

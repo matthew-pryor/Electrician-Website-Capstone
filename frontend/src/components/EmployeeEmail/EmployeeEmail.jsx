@@ -11,7 +11,7 @@ const EmployeeEmail = (props) => {
     const start = props.start;
     const end = props.end;
     const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey('');
+    sgMail.setApiKey('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');
 
     const onComplete = (fields) => {
         const message = {
