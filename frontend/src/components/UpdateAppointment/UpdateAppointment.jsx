@@ -31,7 +31,7 @@ const UpdateAppointment = (props) => {
     const [start, setStart] = useState(customerStart);
     const [end, setEnd] = useState(customerEnd);
     const [description, setDescription] = useState(customerDescription);
-    const [electrician_id, setElictricianId] = useState('');
+    const electrician_id = props.electrician_id;
     const [appointment_status_id, setAppointmentStatus] = useState('')
 
     async function handleSubmitForm(event) {
@@ -111,7 +111,7 @@ const UpdateAppointment = (props) => {
 
             <div>
             <div><label>Appointment Status</label></div>
-            <div><input className="input" type='number' placeholder="1 = Complete, 2 = Scheduled, 3 = Processing, 4 = Canceled " value={appointment_id} onChange={(event) => setAppointmentStatus(event.target.value)}/></div>
+            <div><input className="input" type='text' placeholder="1 = Complete, 2 = Scheduled, 3 = Processing, 4 = Canceled " value={appointment_status_id} onChange={(event) => setAppointmentStatus(event.target.value)}/></div>
             </div>
 
             <div>
