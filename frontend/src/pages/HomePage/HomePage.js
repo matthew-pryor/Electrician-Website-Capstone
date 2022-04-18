@@ -5,6 +5,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import Calendar from "../../components/Calendar/Calendar";
 import DisplayAppointments from "../../components/DisplayAppointments/DisplayAppointments";
+import EmployeeEmail from "../../components/EmployeeEmail/EmployeeEmail";
 
 
 const HomePage = () => {

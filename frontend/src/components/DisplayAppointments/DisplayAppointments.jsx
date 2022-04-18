@@ -4,10 +4,12 @@ import "./DisplayAppointments.css";
 import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios'
 import UpdateAppointment from "../UpdateAppointment/UpdateAppointment";
+import EmployeeEmail from "../EmployeeEmail/EmployeeEmail";
 
 const DisplayAppointments = (props) => {
   const navigate = useNavigate();
   const [showElem, setShowElem] = useState(false);
+  const [showEmail, setShowEmail] = useState(false);
   const [pageNumber, setPageNumber] = useState(0);
   const userId = props.userId
   const appointmentsPerPage = 1;
@@ -104,6 +106,7 @@ const DisplayAppointments = (props) => {
                     description={appointment.description}
                     electrician_id={appointment.electrician_id}
                     /> } <button onClick={()=>{setShowElem(!showElem)}} className="button">Edit</button></td>
+                    <td>{ showEmail && <EmployeeEmail email={appointment.email_address}/> } <button onClick={()=>{setShowEmail(!showEmail)}} className="button">Contact Me!</button></td>
                   </tr>
                 );
               })}
