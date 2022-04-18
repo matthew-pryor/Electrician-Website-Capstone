@@ -4,6 +4,7 @@ import ServiceRequestForm from "../../components/ServiceRequestForm/ServiceReque
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import Calendar from "../../components/Calendar/Calendar";
+import DisplayAppointments from "../../components/DisplayAppointments/DisplayAppointments";
 
 
 const HomePage = () => {
@@ -55,6 +56,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
+      <DisplayAppointments userId={user.id}/>
       <Calendar userId={user.id}/>
         {verified && <ServiceRequestForm electricianId = {eId}/>}
         {!verified && (<h1>Customer Account</h1>)}
