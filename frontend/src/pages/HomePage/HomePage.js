@@ -5,7 +5,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import Calendar from "../../components/Calendar/Calendar";
 import DisplayAppointments from "../../components/DisplayAppointments/DisplayAppointments";
-import EmployeeEmail from "../../components/EmployeeEmail/EmployeeEmail";
+
 
 
 const HomePage = () => {
@@ -14,25 +14,13 @@ const HomePage = () => {
   const [user, token] = useAuth();
   const [electricians, setElectricians] = useState([]);
   const [matchingElectricians, setMatchingElectricians] = useState([]);
-  const [verified, setVerified] = useState(true)
+  const [verified, setVerified] = useState()
   const [eId, setEId] = useState()
 
   async function fetchElectricians() {
     let response = await axios.get('http://127.0.0.1:8000/api/customer_or_employee/all/');
     setElectricians(response.data);
   };
-
-  const emptyArray = (array) => {
-    if (array.length === 0) {
-      //setVerified(false)
-    }
-    else{
-      //setVerified(true);
-      console.log(matchingElectricians[0].id);
-      setEId(matchingElectricians[0].id);
-      console.log(eId)
-    }
-    }
 
   const filterElectricianUsers = (searchElectrician) => {
     let verifiedElectrician = electricians.filter((electrician)=>{
@@ -46,13 +34,26 @@ const HomePage = () => {
     setMatchingElectricians(verifiedElectrician)
   };
 
+  const emptyArray = (array) => {
+    if (array.length === 0) {
+      setVerified(false)
+    }
+    else{
+      setVerified(true);
+      console.log(matchingElectricians[0].id);
+      setEId(matchingElectricians[0].id);
+      console.log(eId)
+    }
+    }
+
   useEffect(() => {
     fetchElectricians();
-    filterElectricianUsers(user.id);
     console.log(electricians);
+    console.log(user.id)
+    filterElectricianUsers(user.id);
     emptyArray(matchingElectricians);
     console.log(eId)
-    }, [token]);
+    }, []);
 
   return (
     <div className="container">
