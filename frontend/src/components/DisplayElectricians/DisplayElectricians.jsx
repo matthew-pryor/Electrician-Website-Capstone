@@ -63,7 +63,7 @@ const DisplayElectricians = (props) => {
                     <div>Services Provided: {electrician.services}</div>
                     <div>Rates: {electrician.rates}</div>
                     <div>{ showElem && <EmployeeCalendar eId={electrician.id}/> } <button onClick={()=>{setShowElem(!showElem)}} className="button">View Availability</button></div>
-                    <div>{ showContact && <Email email={electrician.email}/> } <button onClick={()=>{setShowContact(!showContact)}} className="button">Contact Me!</button></div>
+                    <div>{ showContact && <Email email={electrician.email_address}/> } <button onClick={()=>{setShowContact(!showContact)}} className="button">Contact Me!</button></div>
                   </tr>
                 );
               })}
