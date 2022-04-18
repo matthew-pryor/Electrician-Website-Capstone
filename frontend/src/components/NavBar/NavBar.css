@@ -9,11 +9,12 @@ li {
 }
 
 .navBar {
-  background: steelblue;
+  background: purple;
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
+  margin-bottom: 0;
 }
 
 .navBar button {
@@ -32,4 +33,10 @@ li {
 .brand {
   cursor: pointer;
   font-size: 2rem;
+}
+
+.img{
+  vertical-align: middle;
+  border-style: none;
+  width: 100%;
 }

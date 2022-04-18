@@ -8,11 +8,12 @@ const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
+    <div>
     <div className="navBar">
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/Django JWT</b>
+            <b>BlueCollar Electrical Solutions</b>
           </Link>
         </li>
         <li>
@@ -23,6 +24,13 @@ const Navbar = () => {
           )}
         </li>
       </ul>
+     
+    </div>
+    <div>
+      <ul>
+        <img className="img" src="https://media.istockphoto.com/vectors/electrician-services-concept-banner-header-vector-id1188403001?k=20&m=1188403001&s=170667a&w=0&h=ZNe9PyW69pXjqo_-NCQO6e3G2WX0rOF0f0SlP-4r-ys="/>
+      </ul>
+    </div>
     </div>
   );
 };
