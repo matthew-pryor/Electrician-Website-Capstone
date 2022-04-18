@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, {useState} from "react";
 import useAuth from "../../hooks/useAuth";
-import "react-datepicker/dist/react-datepicker.css";
+import "./RegisterElectrician.css"
 
-const RegisterElectrician = (props) => {
+const RegisterElectrician = () => {
 
     const [user, token] = useAuth();
     const [image, setImage] = useState('');
@@ -53,64 +53,64 @@ const RegisterElectrician = (props) => {
             <h1>Register as an Electrician Here:</h1>
 
             <div>
-            <label>Profile Picture</label>
-            <input type='text' placeholder="Upload IMG URL here..." value={image} onChange={(event) => setImage(event.target.value)}/>
+            <div><label>Profile Picture</label></div>
+            <div><input className="input" type='text' placeholder="Upload IMG URL here..." value={image} onChange={(event) => setImage(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Name</label>
-            <input type='text' required={true} placeholder="Name..." value={name} onChange={(event) => setName(event.target.value)}/>
+            <div><label>Name</label></div>
+            <div><input className="input" type='text' required={true} placeholder="Name..." value={name} onChange={(event) => setName(event.target.value)}/></div>
             </div>
 
 
             <div>
-            <label>City</label>
-            <input type='text' placeholder="City..." value={city} onChange={(event) => setCity(event.target.value)}/>
+            <div><label>City</label></div>
+            <div><input className="input" type='text' placeholder="City..." value={city} onChange={(event) => setCity(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>State</label>
-            <input type='text' placeholder="State..." value={state} onChange={(event) => setState(event.target.value)}/>   
+            <div><label>State</label></div>
+            <div><input className="input" type='text' placeholder="State..." value={state} onChange={(event) => setState(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Zip Code</label>
-            <input type='text' placeholder="XXXXX" value={zip_code} onChange={(event) => setZipCode(event.target.value)}/>
+            <div><label>Zip Code</label></div>
+            <div><input className="input" type='text' placeholder="XXXXX" value={zip_code} onChange={(event) => setZipCode(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Phone Number</label>
-            <input type='text' placeholder="XXX-XXX-XXXX" value={phone_number} onChange={(event) => setPhoneNumber(event.target.value)}/>
+            <div><label>Phone Number</label></div>
+            <div><input className="input" type='text' placeholder="XXX-XXX-XXXX" value={phone_number} onChange={(event) => setPhoneNumber(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>Email Address</label>
-            <input type='text' placeholder="XXXX@email.com" value={email_address} onChange={(event) => setEmailAddress(event.target.value)}/>
+            <div><label>Email Address</label></div>
+            <div><input className="input" type='text' placeholder="XXXX@email.com" value={email_address} onChange={(event) => setEmailAddress(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>LinkedIn Profile Link</label>
-            <input type='text' placeholder="Descriptive Title" value={linkedin} onChange={(event) => setLinkedIn(event.target.value)}/>
+            <div><label>LinkedIn Profile Link</label></div>
+            <div><input className="input" type='text' placeholder="Descriptive Title" value={linkedin} onChange={(event) => setLinkedIn(event.target.value)}/></div>
             </div>
 
             <div>
-            <label>About Me</label>
-            <textarea type='datetime-local' value={about_me} onChange={(event) => setAboutMe(event.target.value)}/> 
+            <div><label>About Me</label></div>
+            <div><textarea className="box" type='datetime-local' value={about_me} onChange={(event) => setAboutMe(event.target.value)}/> </div>
             </div>
 
             <div>
-            <label>Credentials</label>
-            <textarea type='text' placeholder="Credentials..." value={credentials} onChange={(event) => setCredentials(event.target.value)}/> 
+            <div><label>Credentials</label></div>
+            <div><textarea className="box" type='text' placeholder="Credentials..." value={credentials} onChange={(event) => setCredentials(event.target.value)}/> </div>
             </div>
 
             <div>
-            <label>Services</label>
-            <input type='text' placeholder="Services Provided..." value={services} onChange={(event) => setServices(event.target.value)}/> 
+            <div><label>Services</label></div>
+            <div><textarea className="box" type='text' placeholder="Services Provided..." value={services} onChange={(event) => setServices(event.target.value)}/> </div>
             </div>
 
             <div>
-            <label>Rates</label>
-            <input type='text' placeholder="Rates for Common Services..." value={rates} onChange={(event) => setRates(event.target.value)}/>
+            <div><label>Rates</label></div>
+            <div><textarea className="box" type='text' placeholder="Rates for Common Services..." value={rates} onChange={(event) => setRates(event.target.value)}/></div>
             </div>
 
             <div>
